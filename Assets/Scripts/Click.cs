@@ -5,12 +5,8 @@ using System.Collections;
 
 	public UnityEngine.UI.Text gpc;
 	public UnityEngine.UI.Text goldDisplay;
-	public float gold;
-	public int goldperclick;
-
-	void Awake(){
-		gold = PlayerPrefs.GetFloat ("Gold");
-	}
+	public float gold = 0;
+	public int goldperclick = 1;
 
 	void Update() {
 		goldDisplay.text = "Gold: " + CurrencyConverter.Instance.GetCurrencyIntoString(gold);
@@ -18,6 +14,6 @@ using System.Collections;
 	}
 
 	public void Clicked() {
-		PlayerPrefs.SetFloat("Gold", gold += goldperclick);
+		gold += goldperclick;
 	}
 }

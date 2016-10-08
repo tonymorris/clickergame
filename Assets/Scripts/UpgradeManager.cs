@@ -12,11 +12,6 @@ public class UpgradeManager : MonoBehaviour {
 	public string itemName;
 	private float baseCost;
 	private Slider _slider;
-	public float gold;
-
-	void Awake(){
-		gold = PlayerPrefs.GetFloat ("Gold");
-	}
 
 	void Start(){
 		baseCost = cost;
@@ -25,12 +20,12 @@ public class UpgradeManager : MonoBehaviour {
 
 	void Update(){
 		itemInfo.text = itemName + "\nCost: " + cost + "\nPower: +" + clickPower;
-		_slider.value = gold / cost * 100;
+		_slider.value = click.gold / cost * 100;
 	}
 
 	public void PurchasedUpgrade(){
-		if(gold >= cost) {
-			PlayerPrefs.SetFloat("Gold", gold -= cost);
+		if(click.gold >= cost) {
+			PlayerPrefs.SetFloat("Gold", click.gold -= cost);
 			click.goldperclick += clickPower;
 			count += 1;
 			cost = Mathf.Round (baseCost * Mathf.Pow (1.15f, count));
