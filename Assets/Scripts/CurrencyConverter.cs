@@ -20,9 +20,6 @@ public class CurrencyConverter : MonoBehaviour {
 		}
 	}
 
-/*
-  Abbreviate money values with thousands, millions and billions
-*/
 	public string GetCurrencyIntoString(float valueToConvert){
 		string converted;
 		if(valueToConvert >= 1000000000) {
