@@ -23,20 +23,20 @@ public class CurrencyConverter : MonoBehaviour {
 	public string GetCurrencyIntoString(float valueToConvert, bool currencyPerSec, bool currencyPerClick){
 		string converted;
 		if(valueToConvert >= 1000000) {
-			converted = (valueToConvert / 1000000f).ToString("f3") + " Mil";
-	}else if (valueToConvert >= 1000){
-		converted = (valueToConvert / 1000f).ToString("f3") + " K";
-	}else {
-		converted = "" + valueToConvert;
-	}
+			converted = (valueToConvert / 1000000f).ToString("f2") + " Mil";
+		}else if (valueToConvert >= 1000){
+			converted = (valueToConvert / 1000f).ToString("f2") + " K";
+		}else {
+			converted = "" + Mathf.Round(valueToConvert);
+		}
 
-	if(currencyPerSec == true) {
-			converted = converted + " gps";
-	}
+		if(currencyPerSec == true) {
+				converted = converted + " gps";
+		}
 
-	if(currencyPerClick == true) {
-			converted = converted + " gpc";
-	}
-	return converted;
+		if(currencyPerClick == true) {
+				converted = converted + " gpc";
+		}
+		return converted;
 }
 }
