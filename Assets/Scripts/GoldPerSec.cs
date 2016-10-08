@@ -12,7 +12,7 @@ public class GoldPerSec : MonoBehaviour {
 	}
 
 	void Update(){
-		gpsDisplay.text = CurrencyConverter.Instance.GetCurrencyIntoString(GetGoldPerSec(), false, false) + " gold/sec";
+		gpsDisplay.text = CurrencyConverter.Instance.GetCurrencyIntoString(GetGoldPerSec()) + " gold/sec";
 	}
 
 	public float GetGoldPerSec(){

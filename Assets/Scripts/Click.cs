@@ -13,8 +13,8 @@ using System.Collections;
 	}
 
 	void Update() {
-		goldDisplay.text = "Gold: " + CurrencyConverter.Instance.GetCurrencyIntoString(gold, false, false);
-		gpc.text = CurrencyConverter.Instance.GetCurrencyIntoString(goldperclick, false, false) + " gold/click";
+		goldDisplay.text = "Gold: " + CurrencyConverter.Instance.GetCurrencyIntoString(gold);
+		gpc.text = CurrencyConverter.Instance.GetCurrencyIntoString(goldperclick) + " gold/click";
 	}
 
 	public void Clicked() {
