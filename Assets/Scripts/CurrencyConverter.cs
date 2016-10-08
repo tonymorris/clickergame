@@ -25,12 +25,12 @@ public class CurrencyConverter : MonoBehaviour {
 */
 	public string GetCurrencyIntoString(float valueToConvert, bool currencyPerSec, bool currencyPerClick){
 		string converted;
-		if(valueToConvert >= 1000000) {
+		if(valueToConvert >= 1000000000) {
+			converted = (valueToConvert / 1000000000f).ToString("f2") + " B";
+		}else if (valueToConvert >= 1000000){
 			converted = (valueToConvert / 1000000f).ToString("f2") + " M";
 		}else if (valueToConvert >= 1000){
-			converted = (valueToConvert / 1000f).ToString("f2") + " K";
-		}else if (valueToConvert >= 1000000000){
-			converted = (valueToConvert / 1000000000f).ToString("f2") + " B"
+			converted = (valueToConvert / 1000f).ToString("f2") + " K"
 		}else {
 			converted = "" + Mathf.Round(valueToConvert);
 		}
