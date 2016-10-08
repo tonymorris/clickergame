@@ -9,7 +9,11 @@ public class UpgradeManager : MonoBehaviour {
 	public int count = 0;
 	public int clickPower;
 	public string itemName;
-	private float _newCost;
+	private float baseCost;
+
+	void Start(){
+		baseCost = cost;
+	}
 
 	void Update(){
 		itemInfo.text = itemName + "\nCost: " + cost + "\nPower: +" + clickPower;
@@ -20,8 +24,7 @@ public class UpgradeManager : MonoBehaviour {
 			click.gold -= cost;
 			count += 1;
 			click.goldperclick += clickPower;
-			cost = Mathf.Round (cost * 1.15f);
-			_newCost = Mathf.Pow (cost, _newCost = cost);
+			cost = Mathf.Round (baseCost * Mathf.Pow (1.15f, count));
 		}
 	}
 }
